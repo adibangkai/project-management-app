@@ -1,5 +1,5 @@
 import clsx from "clsx";
-
+import "@/styles/global.css";
 export default function GlassPane({ children, className }) {
   return (
     <div

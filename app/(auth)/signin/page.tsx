@@ -1,3 +1,3 @@
 export default function SignPage() {
-  return <div>projectpage</div>;
+  return <div>signin</div>;
 }
