@@ -25,7 +25,7 @@ const Sidebar = () => {
         <Image src={logo} alt="Able logo" priority className="w-14" />
       </div>
       {links.map((link) => (
-        <SidebarLink link={link} />
+        <SidebarLink link={link} key={link.label} />
       ))}
     </Card>
   );
