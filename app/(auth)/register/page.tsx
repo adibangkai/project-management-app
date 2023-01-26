@@ -1,3 +1,9 @@
+import AuthForm from "@/components/AuthForm";
+
 export default function RegisterPage() {
-  return <div>projectpage</div>;
+  return (
+    <div>
+      <AuthForm mode={"register"} />
+    </div>
+  );
 }

@@ -6,16 +6,16 @@ import { useCallback, useState } from "react";
 import Card from "./Card";
 import Input from "./Input";
 import Button from "./Button";
-
+import Link from "next/link";
 const registerContent = {
-  linkurl: "/signin",
+  linkUrl: "/signin",
   linkText: "Already have an Account?",
   header: "Create new account",
   subheader: "Just few things to get started",
   buttonText: "Register",
 };
 const signinContent = {
-  linkurl: "/register",
+  linkUrl: "/register",
   linkText: "Don't have an account?",
   header: "Welcome!",
   subheader: "Enter your credentials to access your account",
@@ -110,6 +110,7 @@ const AuthForm = ({ mode }) => {
             <div>
               <span>
                 <Link
+                  //  prefetch for prelaod other page
                   href={content.linkUrl}
                   className="text-blue-600 font-bold"
                 >
