@@ -4,7 +4,7 @@ export const fetcher = async ({ url, method, body, json = true }) => {
     ...(body && { body: JSON.stringify(body) }),
     headers: {
       Accept: "application/json",
-      "Content-Type": "application.json",
+      "Content-Type": "application/json",
     },
   });
 
@@ -14,7 +14,7 @@ export const fetcher = async ({ url, method, body, json = true }) => {
 
   if (json) {
     const data = await res.json();
-    return data.data;
+    return data;
   }
 };
 

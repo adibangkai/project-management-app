@@ -1,7 +1,7 @@
-import { createJWT, hashPassword } from "@/lib/auth";
 import { NextApiRequest, NextApiResponse } from "next";
-import { serialize } from "cookie";
 import { db } from "@/lib/db";
+import { createJWT, hashPassword } from "@/lib/auth";
+import { serialize } from "cookie";
 
 export default async function register(
   req: NextApiRequest,
@@ -27,9 +27,9 @@ export default async function register(
       })
     );
     res.status(201);
-    res.end();
+    res.json({});
   } else {
     res.status(402);
-    res.end();
+    res.json({});
   }
 }
