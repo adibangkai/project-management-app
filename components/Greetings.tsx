@@ -5,7 +5,7 @@ import Card from "./Card";
 import { delay } from "@/lib/async";
 
 const getData = async () => {
-  await delay(5000);
+  await delay(1000);
   const user = await getUserFromCookie(cookies());
   return user;
 };

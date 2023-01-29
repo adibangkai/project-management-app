@@ -30,8 +30,10 @@ export default async function signin(
         })
       );
       res.status(201);
-      res.end();
+      res.json({});
     }
+    res.status(401);
+    res.json({});
   } else {
     res.status(401);
     res.json({ error: "Invalid login" });
