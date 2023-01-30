@@ -16,7 +16,7 @@ export default async function middleware(req, res) {
   const { pathname } = req.nextUrl;
   if (
     pathname.startsWith("/_next") ||
-    pathname.startsWith("/api") ||
+    pathname.startsWith("/api") || // ini bisa di komen kalo di handler gamake auth
     pathname.startsWith("/static") ||
     pathname.startsWith("/signin") ||
     pathname.startsWith("/register") ||
