@@ -44,6 +44,7 @@ const buttonClasses = cva(
     },
   }
 );
+
 export interface ButtonProps
   extends React.HTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonClasses> {}

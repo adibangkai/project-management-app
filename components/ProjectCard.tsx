@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Prisma, TASK_STATUS } from "@prisma/client";
 import Card from "./Card";
 import clsx from "clsx";
+import { formatDate } from "@/lib/async";
 
 const projectWithTasks = Prisma.validator<Prisma.ProjectArgs>()({
   include: { tasks: true },
@@ -9,13 +10,6 @@ const projectWithTasks = Prisma.validator<Prisma.ProjectArgs>()({
 
 type ProjectWithTasks = Prisma.ProjectGetPayload<typeof projectWithTasks>;
 
-const formatDate = (date) =>
-  new Date(date).toLocaleDateString("en-us", {
-    weekday: "long",
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
 const ProjectCard: FC<{ project: ProjectWithTasks }> = ({ project }) => {
   const completedCount = project.tasks.map(
     (project) => project.status === TASK_STATUS.COMPLETED

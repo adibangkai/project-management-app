@@ -7,6 +7,17 @@
     display: contents;
   }
 }
+@layer components {
+  .COMPLETED {
+    @apply border-b-4 border-teal-400;
+  }
+  .STARTED {
+    @apply border-b-4 border-sky-500;
+  }
+  .NOT_STARTED {
+    @apply border-b-4 border-rose-500;
+  }
+}
 
 * {
   box-sizing: border-box;
