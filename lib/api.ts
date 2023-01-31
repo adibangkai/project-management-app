@@ -44,3 +44,12 @@ export const createNewProject = async (name) => {
     json: true,
   });
 };
+
+export const createNewTask = async (task) => {
+  return fetcher({
+    url: "/api/task",
+    method: "POST",
+    body: task,
+    json: true,
+  });
+};

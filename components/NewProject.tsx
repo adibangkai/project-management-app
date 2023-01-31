@@ -1,28 +1,41 @@
 "use client";
 import { createNewProject } from "@/lib/api";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import Modal from "react-modal";
 import Button from "./Button";
 import Input from "./Input";
-
+import { useRouter } from "next/navigation";
 Modal.setAppElement("#modal");
 
 const NewProject = () => {
+  const router = useRouter();
   const [modalIsOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
   const [name, setName] = useState("");
+  const [isPending, startTransition] = useTransition();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await createNewProject(name);
     closeModal();
+    setName("");
+
+    startTransition(() => {
+      // Refresh the current route and fetch new data from the server without
+      // losing client-side browser or React state.
+      router.refresh();
+    });
   };
 
   return (
-    <div className="px-6 py-8 hover:scale-105 transition-all ease-in-out duration-200 flex justify-center items-center">
-      <Button onClick={() => openModal()}>+ New Project</Button>
-
+    <div
+      style={{ opacity: !isPending ? 1 : 0.7 }}
+      className="px-6 py-8 hover:scale-105 transition-all ease-in-out duration-200 flex justify-center items-center"
+    >
+      <Button onClick={() => openModal()}>
+        {isPending ? "loading" : "+ New Project"}
+      </Button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
