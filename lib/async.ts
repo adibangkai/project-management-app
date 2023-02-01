@@ -10,3 +10,9 @@ export const formatDate = (date) =>
     month: "short",
     day: "numeric",
   });
+
+export const dateDay = (date) =>
+  new Date(date).toLocaleDateString("en-us", {
+    month: "short",
+    day: "numeric",
+  });

@@ -11,7 +11,7 @@ const projectWithTasks = Prisma.validator<Prisma.ProjectArgs>()({
 type ProjectWithTasks = Prisma.ProjectGetPayload<typeof projectWithTasks>;
 
 const ProjectCard: FC<{ project: ProjectWithTasks }> = ({ project }) => {
-  const completedCount = project.tasks.map(
+  const completedCount = project.tasks.filter(
     (project) => project.status === TASK_STATUS.COMPLETED
   ).length;
 
